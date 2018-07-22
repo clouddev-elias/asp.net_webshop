@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Webshop.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../content/Admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <form id="form1" runat="server">
+<div class="header">
+    <div class="cssmenu">
+
+<ul class="b">
+   <li><a href='Default.aspx'><span>Admin Hjem</span></a></li>
+   <li><a href='Product.aspx'><span>Produkt Instillinger</span></a></li>
+   <li class="last"><a class="red" style="text-decoration-color:red" href='/Products.aspx'><span>Se Webshop Produkter</span></a></li>
+</ul>  
+        Webshop AS Admin</div>
+    </div>
+   
+       
+     <div class="body-content">
+   
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+          <p>
+              &nbsp;</p>
+        </asp:ContentPlaceHolder>
+    </div>
+     </form>
+</body>
+</html>

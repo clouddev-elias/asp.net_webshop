@@ -1,0 +1,124 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Webshop.Site" %>
+<%@ Register Src="~/WebUserControl1.ascx" TagName="CatList" TagPrefix="UserCatList" %>
+<html>
+<!DOCTYPE html>
+ <head id="Head1" runat="server"><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title><%: Page.Title %> - </title><asp:PlaceHolder ID="PlaceHolder1" runat="server">
+    </asp:PlaceHolder>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="content/Site.css" rel="stylesheet" type="text/css" />
+   
+
+</head>
+
+<body>
+   
+    <form id="Form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" enablepartialrendering="true" />
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.slides.min.js"></script>
+        <script> 
+            $(function () {
+                $('#slides').slidesjs({
+                    width: 500,
+                    height: 225,
+                    play: {
+                        active: true,
+                        auto: true,
+                        interval: 5000,
+                        swap: true
+                    }
+                });
+            });
+        </script>
+        
+
+<div class="header">
+    
+        <div id="search-box" style="background-color:black;">
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Søk" OnClick="Button1_Click" />
+            </div>
+           
+    <div class="banner-logo" style="background-color:white;">
+    
+        
+        <div class="container" style="height: 300px">
+              <div id="slides">
+                  <asp:Image ID="Image2" AlternateText="Photo by:" ImageUrl="Images/rec1.jpg" height="250" runat="server"  />   
+                  <asp:Image ID="Image1" AlternateText="Photo by:" ImageUrl="Images/rec4.jpg" height="250" runat="server"  />  
+                  <img src="Images/rec2.jpg" height="250" alt="">
+                  <img src="Images/rec3.jpg" height="250" alt="/">
+              </div>
+            </div>
+    </div>
+        
+
+      
+    
+             
+<div class="cssmenu">
+
+<ul class="a">
+   <li><a href='/Default.aspx'><span>Forside</span></a></li>
+   <li><a href='/Products.aspx'><span>Webshop</span></a></li>
+   <li class='last'><a href='/kontakt.aspx'><span>Kontakt</span></a></li>
+    </ul>
+    
+<ul class="b">
+      <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+               <AnonymousTemplate>
+                                <li><a id="A5" runat="server" href="~/Registrer.aspx">Registrering</a></li>
+                                <li><a id="A6" runat="server" href="~/Acc/Login.aspx">Logg inn</a></li>
+               </AnonymousTemplate>
+                <LoggedInTemplate>
+                                <li><a id="A8" runat="server" href="~/Acc/Manage.aspx" title="Manage your account" >Hello,  <%: Context.User.Identity.Name  %> !</a> </li>
+                                <li><asp:LoginStatus ID="LoginStatus1" runat="server"  /> </li>
+                </LoggedInTemplate>
+      </asp:LoginView>
+    
+  </ul>
+
+</div>
+        <div class="AfterMenu">
+        <ul class="a" style="float:left; width:40%;">
+            <li><asp:Label ID="LabelNav" runat="server" Text="">Her er du</asp:Label></li></ul>
+         <ul class="b" style="float:right;"><li> <a><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ShoppingCart.aspx">Kurv()</asp:HyperLink> </a></li></ul>   
+
+&nbsp;</div>
+</div>
+
+       <div class="wrapper">   
+       
+           <div id="block-left">
+
+
+            <UserCatList:CatList ID="CatList1" runat="server" />
+           
+           </diV>
+           
+          
+            <div id="block-content">
+
+
+            
+   
+
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    
+            </asp:ContentPlaceHolder>
+
+
+
+            </div>
+           </div>
+
+             <div class="footer">
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Webshop AS</p>
+            </footer>
+                </div>
+    
+    </form>   
+</body>
+</html>

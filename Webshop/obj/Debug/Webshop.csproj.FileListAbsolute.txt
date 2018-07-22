@@ -1,0 +1,6 @@
+c:\users\elias\documents\visual studio 2012\Projects\Webshop\Webshop\bin\Webshop.dll
+c:\users\elias\documents\visual studio 2012\Projects\Webshop\Webshop\bin\Webshop.pdb
+c:\users\elias\documents\visual studio 2012\Projects\Webshop\Webshop\obj\Debug\Webshop.dll
+c:\users\elias\documents\visual studio 2012\Projects\Webshop\Webshop\obj\Debug\Webshop.pdb
+c:\users\elias\documents\visual studio 2012\Projects\Webshop\Webshop\obj\Debug\Webshop.csprojResolveAssemblyReference.cache
+C:\Users\Elias\documents\visual studio 2012\Projects\Webshop\Webshop\bin\System.Web.Providers.dll

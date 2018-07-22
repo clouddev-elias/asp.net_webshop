@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Webshop.Site" %>
+
+<!DOCTYPE html>
+
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Wingtip Toys</title>
+
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+    </asp:PlaceHolder>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="content/Site.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <form id="Form1" runat="server">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="A1" class="navbar-brand" runat="server" href="~/">Merkenavn</a></div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" id="adminLink" visible="false" 
+                          href="~/Admin/AdminPage">Admin</a></li>
+                        <li>
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx" Target="_self">Default</asp:HyperLink></li>
+                        <li><a id="A2" runat="server" href="~/About">About</a></li>
+                        <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
+                        <li><a id="A4" runat="server" href="~/ProductList">Products</a></li>
+                        <li><a runat="server" href="~/ShoppingCart" ID="cartCount">&nbsp;</a></li>
+                    </ul>
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a id="A5" runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a id="A6" runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a id="A7" runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div id="TitleContent" style="text-align: center">
+            <a id="A8" runat="server" href="~/">
+                <asp:Image  ID="Image1" runat="server" ImageUrl="~/Images/logo.jpg" BorderStyle="Dashed" />
+            </a>  
+            <br />  
+        </div>
+        <div id="CategoryMenu" style="text-align: center">       
+            <asp:ListView ID="categoryList"   runat="server" SelectMethod="GetCategories" >
+                <ItemTemplate>
+
+                </ItemTemplate>
+                <ItemSeparatorTemplate>  |  </ItemSeparatorTemplate>
+            </asp:ListView>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+             
+            </asp:ContentPlaceHolder>
+            <div class="footer">
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Webshop</p>
+            </footer>
+                </div>
+        </div>
+    </form>
+</body>
+</html>
